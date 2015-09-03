@@ -13,17 +13,12 @@ import AppKit
 
 class AppDelegate : NSObject, NSApplicationDelegate {
     
-    lazy var settingsController = NSWindowController(windowNibName: "Settings")
     @IBOutlet var window: NSWindow!
 
     func applicationDidFinishLaunching(notification: NSNotification) {
-        window.title = (NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleDisplayName") as String)
+        self.window.collectionBehavior = NSWindowCollectionBehavior.FullScreenPrimary
     }
-    
-    //@IBAction func openSettings(sender: AnyObject) {
-    //    settingsController.showWindow(sender)
-    //}
-    
+
     func applicationShouldHandleReopen(sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         if flag {
             window.orderFront(self)
@@ -32,7 +27,4 @@ class AppDelegate : NSObject, NSApplicationDelegate {
         }
         return true
     }
-    
-    
-    
 }
